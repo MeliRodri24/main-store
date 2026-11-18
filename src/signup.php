@@ -1,5 +1,9 @@
 <?php
 // get database conecction 
+/*
+Use this URL to print data in browser:
+http://localhost/main-store/src/singup.html*/
+
 require('../settings/database.php');
 
 //get payload from fronted
@@ -10,6 +14,7 @@ require('../settings/database.php');
     $e_mail = $_POST['email'];
     //MD5 metodo de encriptacion 
     $password = MD5($_POST['pswd']);
+    $PHOTO_URL = 'photos/photo_default.png';
     
 $sql_check_email = "SELECT * FROM users WHERE email = '$e_mail' "; 
 $res = pg_query($local_conn, $sql_check_email);
@@ -25,13 +30,15 @@ if($total < 1){
     //prepare query
     $sql = "
         INSERT INTO 
-        users(firstname, lastname, ident_number, email, password) 
+        users(firstname, lastname, ident_number, email, password, url_photo, mobile_phone) 
         values(
             '$first_name' ,
             '$last_name', 
             '$ident_number',
             '$e_mail',
-            '$password'
+            '$password',
+            '$PHOTO_URL',
+            '$mobile_phone'
         ) ;
     ";
 

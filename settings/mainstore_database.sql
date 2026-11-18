@@ -19,3 +19,13 @@ CREATE TABLE users (
 SELECT * FROM users;
 --Insert a new user into users table
 INSERT INTO users (firstname, lastname, ident_number, email, password) VALUES ('Joan', 'Ayala', '56890988', 'joan@gmail.com', '123456');
+--Update field url_photo
+UPDATE users SET url_photo = 'photos/photo_default.png' WHERE id = 12;
+-UPDATE users SET url_photo = 'photos/photo_default.png' WHERE id = 8;
+
+--UPDATE users SET url_photo = 'photos/photo_default.png' WHERE id = 8;
+--DELETE FROM users;
+--ALTER SEQUENCE users_id_seq RESTART WITH 1;
+--SELECT COUNT (ident_number) as total_users from users;
+--UPDATE user set status = false WHERE id = 1;
+--UPDATE users SET status = false WHERE id=2;
