@@ -1,16 +1,25 @@
 <?php
 include "../settings/database.php";
 
-session_start();
+/*session_start();
 if(!isset($_SESSION['user_id'])){
     header('refresh:0;url=signin.html');
 }else{
    header('refresh:0;url=home.php'); 
-}
+}*/
 
 
 $email = $_POST['email'];
-$password = MD5($_POST['pswd']);
+//$password = MD5($_POST['pswd']);
+
+$sq_get_password= "SELECT password FROM users WHERE email = '$email' ";
+$res = ps_query($local_conn, $sql_get_password);
+$row = pg_fetch_assoc($res);
+$password_db = $row ['password'];
+
+$password = password_verify($_POST['pswd'], $password_db);
+
+echo "HOLA,AQUI ESTOY: " . $password;
 
 $sql_check_email = "
     SELECT 
