@@ -13,7 +13,8 @@ require('../settings/database.php');
     $mobile_phone = $_POST['mphone'];
     $e_mail = $_POST['email'];
     //MD5 metodo de encriptacion 
-    $password = MD5($_POST['pswd']);
+    //$password = MD5($_POST['pswd']);
+    $password = password_hash($_POST['pswd'], PASSWORD_DEFAULT);
     $PHOTO_URL = 'photos/photo_default.png';
     
 $sql_check_email = "SELECT * FROM users WHERE email = '$e_mail' "; 
