@@ -19,6 +19,8 @@ if (!isset($_SESSION['user_id'])) {
             <h3>Welcome to main Store</h3>
             <a href="logout.php">Logout</a>
         </center>
+        menu: <br>
+       <a href='list_users.php' >Go to list user</a>
     
     </body>
 </html>
